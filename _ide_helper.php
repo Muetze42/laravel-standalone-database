@@ -1551,17 +1551,11 @@ namespace Illuminate\Support\Facades {
 }
 
 namespace Illuminate\Database\Eloquent\Relations {
-    /**
-     *
-     */
     class BelongsToMany
     {
 
     }
 
-    /**
-     *
-     */
     class Relation
     {
         /**
@@ -1585,41 +1579,26 @@ namespace Illuminate\Database\Eloquent\Relations {
 
     }
 
-    /**
-     *
-     */
     class HasMany
     {
 
     }
 
-    /**
-     *
-     */
     class HasOneOrMany
     {
 
     }
 
-    /**
-     *
-     */
     class BelongsTo
     {
 
     }
 
-    /**
-     *
-     */
     class MorphMany
     {
 
     }
 
-    /**
-     *
-     */
     class MorphOneOrMany
     {
 
@@ -1627,6 +1606,15 @@ namespace Illuminate\Database\Eloquent\Relations {
 }
 
 namespace Illuminate\Support {
+    class Arr {
+
+    }
+    class Js {
+
+    }
+    class Str {
+
+    }
     class Collection {
         /**
          *
@@ -1646,9 +1634,7 @@ namespace {
     class DB extends \Illuminate\Support\Facades\DB
     {
     }
-
-    class Eloquent extends \Illuminate\Database\Eloquent\Model
-    {
+    class Eloquent extends \Illuminate\Database\Eloquent\Model {
         /**
          * Create and return an un-saved model instance.
          *
@@ -1904,9 +1890,9 @@ namespace {
          *
          * @param mixed $id
          * @param array|string $columns
+         * @return \Illuminate\Database\Eloquent\Model|\Illuminate\Database\Eloquent\Collection|static|static[]
          * @throws \Illuminate\Database\Eloquent\ModelNotFoundException<\Illuminate\Database\Eloquent\Model>
          * @static
-         * @return \Illuminate\Database\Eloquent\Model|\Illuminate\Database\Eloquent\Collection|static|static[]
          */
         public static function findOrFail($id, $columns = [])
         {
@@ -1989,9 +1975,9 @@ namespace {
          * Execute the query and get the first result or throw an exception.
          *
          * @param array|string $columns
+         * @return \Illuminate\Database\Eloquent\Model|static
          * @throws \Illuminate\Database\Eloquent\ModelNotFoundException<\Illuminate\Database\Eloquent\Model>
          * @static
-         * @return \Illuminate\Database\Eloquent\Model|static
          */
         public static function firstOrFail($columns = [])
         {
@@ -2017,10 +2003,10 @@ namespace {
          * Execute the query and get the first result if it's the sole matching record.
          *
          * @param array|string $columns
+         * @return \Illuminate\Database\Eloquent\Model
          * @throws \Illuminate\Database\Eloquent\ModelNotFoundException<\Illuminate\Database\Eloquent\Model>
          * @throws \Illuminate\Database\MultipleRecordsFoundException
          * @static
-         * @return \Illuminate\Database\Eloquent\Model
          */
         public static function sole($columns = [])
         {
@@ -2045,10 +2031,10 @@ namespace {
          * Get a single column's value from the first result of a query if it's the sole matching record.
          *
          * @param string|\Illuminate\Database\Query\Expression $column
+         * @return mixed
          * @throws \Illuminate\Database\Eloquent\ModelNotFoundException<\Illuminate\Database\Eloquent\Model>
          * @throws \Illuminate\Database\MultipleRecordsFoundException
          * @static
-         * @return mixed
          */
         public static function soleValue($column)
         {
@@ -2060,9 +2046,9 @@ namespace {
          * Get a single column's value from the first result of the query or throw an exception.
          *
          * @param string|\Illuminate\Database\Query\Expression $column
+         * @return mixed
          * @throws \Illuminate\Database\Eloquent\ModelNotFoundException<\Illuminate\Database\Eloquent\Model>
          * @static
-         * @return mixed
          */
         public static function valueOrFail($column)
         {
@@ -2142,9 +2128,9 @@ namespace {
          * @param array|string $columns
          * @param string $pageName
          * @param int|null $page
+         * @return \Illuminate\Contracts\Pagination\LengthAwarePaginator
          * @throws \InvalidArgumentException
          * @static
-         * @return \Illuminate\Contracts\Pagination\LengthAwarePaginator
          */
         public static function paginate($perPage = null, $columns = [], $pageName = 'page', $page = null)
         {
@@ -2522,9 +2508,9 @@ namespace {
          *
          * @param callable $callback
          * @param int $count
+         * @return bool
          * @throws \RuntimeException
          * @static
-         * @return bool
          */
         public static function each($callback, $count = 1000)
         {
@@ -2568,9 +2554,9 @@ namespace {
          * Query lazily, by chunks of the given size.
          *
          * @param int $chunkSize
+         * @return \Illuminate\Support\LazyCollection
          * @throws \InvalidArgumentException
          * @static
-         * @return \Illuminate\Support\LazyCollection
          */
         public static function lazy($chunkSize = 1000)
         {
@@ -2584,9 +2570,9 @@ namespace {
          * @param int $chunkSize
          * @param string|null $column
          * @param string|null $alias
+         * @return \Illuminate\Support\LazyCollection
          * @throws \InvalidArgumentException
          * @static
-         * @return \Illuminate\Support\LazyCollection
          */
         public static function lazyById($chunkSize = 1000, $column = null, $alias = null)
         {
@@ -2600,9 +2586,9 @@ namespace {
          * @param int $chunkSize
          * @param string|null $column
          * @param string|null $alias
+         * @return \Illuminate\Support\LazyCollection
          * @throws \InvalidArgumentException
          * @static
-         * @return \Illuminate\Support\LazyCollection
          */
         public static function lazyByIdDesc($chunkSize = 1000, $column = null, $alias = null)
         {
@@ -2627,10 +2613,10 @@ namespace {
          * Execute the query and get the first result if it's the sole matching record.
          *
          * @param array|string $columns
+         * @return \Illuminate\Database\Eloquent\Model|object|static|null
          * @throws \Illuminate\Database\RecordsNotFoundException
          * @throws \Illuminate\Database\MultipleRecordsFoundException
          * @static
-         * @return \Illuminate\Database\Eloquent\Model|object|static|null
          */
         public static function baseSole($columns = [])
         {
@@ -2693,9 +2679,9 @@ namespace {
          * @param int $count
          * @param string $boolean
          * @param \Closure|null $callback
+         * @return \Illuminate\Database\Eloquent\Builder|static
          * @throws \RuntimeException
          * @static
-         * @return \Illuminate\Database\Eloquent\Builder|static
          */
         public static function has($relation, $operator = '>=', $count = 1, $boolean = 'and', $callback = null)
         {
@@ -2764,6 +2750,7 @@ namespace {
 
         /**
          * Add a relationship count / exists condition to the query with where clauses.
+         *
          * Also load the relationship with same condition.
          *
          * @param string $relation
@@ -3079,9 +3066,9 @@ namespace {
          * @param \Illuminate\Database\Eloquent\Model|\Illuminate\Database\Eloquent\Collection<\Illuminate\Database\Eloquent\Model> $related
          * @param string|null $relationshipName
          * @param string $boolean
+         * @return \Illuminate\Database\Eloquent\Builder|static
          * @throws \Illuminate\Database\Eloquent\RelationNotFoundException
          * @static
-         * @return \Illuminate\Database\Eloquent\Builder|static
          */
         public static function whereBelongsTo($related, $relationshipName = null, $boolean = 'and')
         {
@@ -3094,9 +3081,9 @@ namespace {
          *
          * @param \Illuminate\Database\Eloquent\Model $related
          * @param string|null $relationshipName
+         * @return \Illuminate\Database\Eloquent\Builder|static
          * @throws \RuntimeException
          * @static
-         * @return \Illuminate\Database\Eloquent\Builder|static
          */
         public static function orWhereBelongsTo($related, $relationshipName = null)
         {
@@ -3232,9 +3219,9 @@ namespace {
          *
          * @param \Closure|\Illuminate\Database\Query\Builder|\Illuminate\Database\Eloquent\Builder|string $query
          * @param string $as
+         * @return \Illuminate\Database\Query\Builder
          * @throws \InvalidArgumentException
          * @static
-         * @return \Illuminate\Database\Query\Builder
          */
         public static function selectSub($query, $as)
         {
@@ -3261,9 +3248,9 @@ namespace {
          *
          * @param \Closure|\Illuminate\Database\Query\Builder|\Illuminate\Database\Eloquent\Builder|string $query
          * @param string $as
+         * @return \Illuminate\Database\Query\Builder
          * @throws \InvalidArgumentException
          * @static
-         * @return \Illuminate\Database\Query\Builder
          */
         public static function fromSub($query, $as)
         {
@@ -3313,7 +3300,7 @@ namespace {
         /**
          * Set the table which the query is targeting.
          *
-         * @param \Closure|\Illuminate\Database\Query\Builder|string $table
+         * @param \Closure|\Illuminate\Database\Query\Builder|\Illuminate\Database\Eloquent\Builder|string $table
          * @param string|null $as
          * @return \Illuminate\Database\Query\Builder
          * @static
@@ -3369,9 +3356,9 @@ namespace {
          * @param string|null $second
          * @param string $type
          * @param bool $where
+         * @return \Illuminate\Database\Query\Builder
          * @throws \InvalidArgumentException
          * @static
-         * @return \Illuminate\Database\Query\Builder
          */
         public static function joinSub($query, $as, $first, $operator = null, $second = null, $type = 'inner', $where = false)
         {
@@ -3527,9 +3514,9 @@ namespace {
          * @param string $value
          * @param string $operator
          * @param bool $useDefault
+         * @return array
          * @throws \InvalidArgumentException
          * @static
-         * @return array
          */
         public static function prepareValueAndOperator($value, $operator, $useDefault = false)
         {
@@ -4161,9 +4148,9 @@ namespace {
          * @param string $operator
          * @param array $values
          * @param string $boolean
+         * @return \Illuminate\Database\Query\Builder
          * @throws \InvalidArgumentException
          * @static
-         * @return \Illuminate\Database\Query\Builder
          */
         public static function whereRowValues($columns, $operator, $values, $boolean = 'and')
         {
@@ -4565,9 +4552,9 @@ namespace {
          *
          * @param \Closure|\Illuminate\Database\Query\Builder|\Illuminate\Database\Eloquent\Builder|\Illuminate\Database\Query\Expression|string $column
          * @param string $direction
+         * @return \Illuminate\Database\Query\Builder
          * @throws \InvalidArgumentException
          * @static
-         * @return \Illuminate\Database\Query\Builder
          */
         public static function orderBy($column, $direction = 'asc')
         {
@@ -4824,6 +4811,20 @@ namespace {
         {
             /** @var \Illuminate\Database\Query\Builder $instance */
             return $instance->toSql();
+        }
+
+        /**
+         * Get a single expression value from the first result of a query.
+         *
+         * @param string $expression
+         * @param array $bindings
+         * @return mixed
+         * @static
+         */
+        public static function rawValue($expression, $bindings = [])
+        {
+            /** @var \Illuminate\Database\Query\Builder $instance */
+            return $instance->rawValue($expression, $bindings);
         }
 
         /**
@@ -5144,9 +5145,9 @@ namespace {
          *
          * @param array $bindings
          * @param string $type
+         * @return \Illuminate\Database\Query\Builder
          * @throws \InvalidArgumentException
          * @static
-         * @return \Illuminate\Database\Query\Builder
          */
         public static function setBindings($bindings, $type = 'where')
         {
@@ -5159,9 +5160,9 @@ namespace {
          *
          * @param mixed $value
          * @param string $type
+         * @return \Illuminate\Database\Query\Builder
          * @throws \InvalidArgumentException
          * @static
-         * @return \Illuminate\Database\Query\Builder
          */
         public static function addBinding($value, $type = 'where')
         {
@@ -5324,9 +5325,9 @@ namespace {
          *
          * @param object $mixin
          * @param bool $replace
+         * @return void
          * @throws \ReflectionException
          * @static
-         * @return void
          */
         public static function mixin($mixin, $replace = true)
         {
@@ -5349,9 +5350,9 @@ namespace {
          *
          * @param string $method
          * @param array $parameters
+         * @return mixed
          * @throws \BadMethodCallException
          * @static
-         * @return mixed
          */
         public static function macroCall($method, $parameters)
         {
@@ -5359,7 +5360,6 @@ namespace {
             return $instance->macroCall($method, $parameters);
         }
     }
-
     class Schema extends \Illuminate\Support\Facades\Schema
     {
     }
